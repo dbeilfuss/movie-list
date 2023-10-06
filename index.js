@@ -7,12 +7,15 @@ function addMovie(event) {
 
   // add the movie to the list
   const movieName = inputField.value;
-  const newMovie = document.createElement("li");
+  const newMovieContainer = document.createElement("li");
+  const movieTitle = document.createElement("div");
   const movieList = document.querySelector("ul");
 
-  newMovie.textContent = movieName;
-  newMovie.addEventListener("click", crossOffMovie);
-  movieList.appendChild(newMovie);
+  movieTitle.classList.add("movieTitle");
+  movieTitle.textContent = movieName;
+  movieTitle.addEventListener("click", crossOffMovie);
+  newMovieContainer.appendChild(movieTitle);
+  movieList.appendChild(newMovieContainer);
 
   // clear the input field
   inputField.value = "";
@@ -21,7 +24,7 @@ function addMovie(event) {
   const deleteBtn = document.createElement("button");
   deleteBtn.textContent = "X";
   deleteBtn.addEventListener("click", deleteMovie);
-  newMovie.appendChild(deleteBtn);
+  newMovieContainer.appendChild(deleteBtn);
 }
 
 function deleteMovie(event) {
