@@ -43,6 +43,7 @@ li {
   justify-content: space-between;
   align-items: stretch;
   align-content: stretch;
+  margin-top: 5px;
 }
 
 .movieTitle {
