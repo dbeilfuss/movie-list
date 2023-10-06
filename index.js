@@ -28,7 +28,8 @@ function addMovie(event) {
 }
 
 function deleteMovie(event) {
-  message.textContent = "Movie Deleted";
+  const movieName = event.target.previousElementSibling.textContent;
+  displayMessage(`${movieName} Deleted`);
   event.target.parentNode.remove();
 }
 
@@ -36,10 +37,18 @@ function crossOffMovie(event) {
   let thisMovie = event.target;
   thisMovie.classList.toggle("checked");
   if (thisMovie.classList.contains("checked")) {
-    message.textContent = "Movie Watched!";
+    displayMessage(`${thisMovie.textContent} Watched!`);
   } else {
-    message.textContent = "Movie added back";
+    displayMessage(`${thisMovie.textContent} added back`);
   }
+}
+
+function displayMessage(text) {
+  message.classList.remove("hide");
+  message.textContent = text;
+  setTimeout(() => {
+    message.classList.add("hide");
+  }, 2000);
 }
 
 const form = document.querySelector("form");
